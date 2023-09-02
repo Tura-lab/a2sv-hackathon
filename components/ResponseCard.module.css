@@ -1,0 +1,23 @@
+.response {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  color: #fff;
+  background-color: #10a37f;
+  width: 500px;
+}
+
+.author {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.text {
+  font-size: 16px;
+}
