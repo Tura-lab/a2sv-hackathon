@@ -18,8 +18,9 @@ export default function InputPdfLink({ setPdfLink }) {
           name="pdfLink"
           className={style.input}
           id="pdf-link"
-          placeholder="enter the link to pdf"
-        ></input>
+          placeholder="Enter the link to PDF"
+        />
+
         <button className={style.button}>Train</button>
       </form>
     </div>

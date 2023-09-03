@@ -15,9 +15,11 @@ export default function Home() {
   //result is the response from the api and i want it to populate the response in the array and map over it to display it in the div
 
   const Content =
-    result.length === 0
-      ? "start chat"
-      : result.map((cur) => <ResponseCard response={cur} />);
+    result.length === 0 ? (
+      <div className={styles.placeholder}>Start Something here</div>
+    ) : (
+      result.map((cur) => <ResponseCard response={cur} />)
+    );
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -59,6 +61,9 @@ export default function Home() {
         <title>PDFY</title>
         <link rel="icon" href="/dog.png" />
       </Head>
+      <div>
+        <h1 className={styles.title}>Study Pal</h1>
+      </div>
 
       <main className={styles.main}>
         <InputPdfLink setPdfLink={setPdfLink} />
@@ -79,7 +84,6 @@ export default function Home() {
             </button>
           </form>
         </div>
-        <div className={styles.summary}></div>
       </main>
     </div>
   );
