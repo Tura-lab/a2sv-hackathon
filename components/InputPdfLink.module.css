@@ -1,24 +1,33 @@
-/* InputPdfLink.css */
 .topLeftContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px; /* Adjust padding as needed */
-  background-color: #fff; /* Background color for the container */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
-}
-
-/* Style for the input and button within the container */
-.input {
-  width: 200px; /* Adjust width as needed */
-  padding: 5px;
-  margin-right: 10px; /* Spacing between input and button */
+  justify-self: start;
+  /* background-color: blue; */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .button {
-  padding: 5px 10px;
-  background-color: #007bff; /* Button background color */
-  color: #fff; /* Button text color */
+  background-color: #10a37f;
+  color: #fff;
   border: none;
+  outline: none;
+  font-size: 1.5rem;
+  font-family: "ColfaxAI", sans-serif;
+  padding: 0.5rem 2rem;
+  /* width: 100px;
+  height: 50px; */
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.input {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-family: "ColfaxAI", sans-serif;
+  width: 350px;
+  border: none;
+  outline: none;
+  margin-bottom: 1rem;
 }
