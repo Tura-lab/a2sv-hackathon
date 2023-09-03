@@ -3,34 +3,25 @@ import { useState } from "react";
 import styles from "./index.module.css";
 import ResponseCard from "../components/ResponseCard";
 import InputPdfLink from "../components/InputPdfLink";
-
-
-
-
+// import {} from "react-icons/fa";/
+import { IoMdSend } from "react-icons/io";
 
 export default function Home() {
   const [query, setquery] = useState("");
   const [result, setResult] = useState([]);
   const [pdfLink, setPdfLink] = useState("");
 
-  console.log(pdfLink)
+  console.log(pdfLink);
   //result is the response from the api and i want it to populate the response in the array and map over it to display it in the div
 
-
-  const Content = result.length === 0
-    ? 'start chat'
-    : result.map(cur => <ResponseCard response={cur} />);
-
-
-
-
+  const Content =
+    result.length === 0
+      ? "start chat"
+      : result.map((cur) => <ResponseCard response={cur} />);
 
   async function onSubmit(event) {
     event.preventDefault();
-    setResult(prevResult => [
-      ...prevResult,
-      { author: 'USER', text: query },
-    ]);
+    setResult((prevResult) => [...prevResult, { author: "USER", text: query }]);
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -43,12 +34,15 @@ export default function Home() {
       const data = await response.json();
 
       if (response.status !== 200) {
-        throw data.error || new Error(`Request failed with status ${response.status}`);
+        throw (
+          data.error ||
+          new Error(`Request failed with status ${response.status}`)
+        );
       }
 
-      setResult(prevResult => [
+      setResult((prevResult) => [
         ...prevResult,
-        { author: 'AI', text: data.result },
+        { author: "AI", text: data.result },
       ]);
 
       setquery("");
@@ -60,7 +54,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className={styles.body}>
       <Head>
         <title>PDFY</title>
         <link rel="icon" href="/dog.png" />
@@ -69,19 +63,23 @@ export default function Home() {
       <main className={styles.main}>
         <InputPdfLink setPdfLink={setPdfLink} />
 
-        <img src="/dog.png" className={styles.icon} />
-        <h3>let's learn</h3>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="animal"
-            placeholder="ask me about the document"
-            value={query}
-            onChange={(e) => setquery(e.target.value)}
-          />
-          <button className={styles.button}>GO</button>
-        </form>
-        <div className={styles.result}>{Content}</div>
+        <div className={styles.chat}>
+          <div className={styles.result}>{Content}</div>
+          <form className={styles.chatinput} onSubmit={onSubmit}>
+            <input
+              type="text"
+              name="animal"
+              className={styles.inputElement}
+              placeholder="Ask me about the document"
+              value={query}
+              onChange={(e) => setquery(e.target.value)}
+            />
+            <button className={styles.button}>
+              <IoMdSend />
+            </button>
+          </form>
+        </div>
+        <div className={styles.summary}></div>
       </main>
     </div>
   );

@@ -1,18 +1,20 @@
 /* InputPdfLink.css */
 .topLeftContainer {
-  position: absolute;
-  top: 0;
+  /* position: absolute;   */
+  bottom: 50%;
   left: 0;
   padding: 10px; /* Adjust padding as needed */
   background-color: #fff; /* Background color for the container */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+  background: #000;
 }
 
 /* Style for the input and button within the container */
 .input {
-  width: 200px; /* Adjust width as needed */
+  width: 90%; /* Adjust width as n  eeded */
   padding: 5px;
-  margin-right: 10px; /* Spacing between input and button */
+  margin-bottom: 1rem;
+  /* margin-right: 10px; Spacing between input and button */
 }
 
 .button {
@@ -21,4 +23,13 @@
   color: #fff; /* Button text color */
   border: none;
   cursor: pointer;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: red;
+  height: 100%;
 }
